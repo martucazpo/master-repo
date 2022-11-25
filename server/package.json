@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha  \"backend/test\" --timeout 10000 --u tdd",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "cd ../ && npm start --prefix client",
+    "dev": "concurrently \"npm run server\"  \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +24,7 @@
   },
   "devDependencies": {
     "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
     "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "mocha": "^10.1.0",
