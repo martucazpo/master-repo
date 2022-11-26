@@ -1,13 +1,15 @@
 import LoginModal from "../components/LoginModal.js"
 import Header from "../components/Header.js"
+import Card from "../components/Card.js"
 import store from "../utils/redux/store.js"
+import API from "../utils/api/API.js"
 
 
 
 const mainDiv = document.getElementById("mainDiv")
 
 
-export const render = () => {
+export const render = async () => {
     const modalOpen = store.getState().auth.modalOpen
     const authState = store.getState().auth.isAuth
     mainDiv.innerHTML = ""
@@ -19,10 +21,10 @@ export const render = () => {
     } else if(!authState && !modalOpen){
         mainDiv.append(Header())
     }else {
-        let h1 = document.createElement("h1")
-        h1.innerText = "You're logged in!"
+        let authToken = store.getState().auth.authToken
+        await API.getDbUser(authToken)
         mainDiv.append(Header())
-        mainDiv.append(h1)
+        mainDiv.append(Card())
     }
 
 }

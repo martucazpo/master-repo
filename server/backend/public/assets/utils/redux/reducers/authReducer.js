@@ -45,6 +45,7 @@ const AuthReducer = (state = initialState, action) => {
                 password: "",
                 authMessage: "",
                 isAuth: action.payload.isAuth,
+                authToken: action.payload._id,
                 login: true,
                 modalOpen: false
             }

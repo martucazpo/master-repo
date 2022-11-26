@@ -5,5 +5,6 @@ require("../db")
 module.exports = {
     uponLanding: appControllers.uponLanding,
     registerUser: authControllers.registerUser,
-    loginUser: authControllers.loginUser
+    loginUser: authControllers.loginUser,
+    getUser: appControllers.getUser
 }

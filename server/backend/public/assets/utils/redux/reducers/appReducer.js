@@ -1,6 +1,8 @@
-import { GET_INPUT } from "../types.js"
+import { GET_INPUT, GET_USER } from "../types.js"
 
-let initialState = {}
+let initialState = {
+    user: {}
+}
 
 const appReducer = (state=initialState, action) => {
     switch(action.type){
@@ -9,6 +11,11 @@ const appReducer = (state=initialState, action) => {
             return {
                 ...state,
                 [name]: value
+            }
+        case GET_USER:
+            return {
+                ...state,
+                user: action.payload
             }
         default:
             return state

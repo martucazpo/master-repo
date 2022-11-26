@@ -1,7 +1,7 @@
-import { sendMessage } from "../utils/redux/actions.js"
-import { registerUser } from "../utils/API.js"
-import { render } from "./render.js"
 import store from "../utils/redux/store.js"
+import API from "../utils/api/API.js"
+import { render } from "./render.js"
+import { sendMessage } from "../utils/redux/actions.js"
 const bcrypt = dcodeIO.bcrypt
 
 export const regFormSubmit = async () =>{
@@ -12,7 +12,7 @@ export const regFormSubmit = async () =>{
         return
     } else {
         let password = bcrypt.hashSync(password1, 10)
-        await registerUser({ firstName, lastName, email, password })
+        await API.registerUser({ firstName, lastName, email, password })
         render()
         return
     }
