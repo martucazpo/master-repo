@@ -1,4 +1,4 @@
-import { GET_INPUT, GET_USER } from "../types.js"
+import { GET_INPUT, GET_USER, LOGOUT_APP } from "../types.js"
 
 let initialState = {
     user: {}
@@ -17,6 +17,8 @@ const appReducer = (state=initialState, action) => {
                 ...state,
                 user: action.payload
             }
+        case LOGOUT_APP:
+            return state = initialState
         default:
             return state
     }

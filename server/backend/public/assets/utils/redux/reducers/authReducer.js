@@ -1,4 +1,4 @@
-import { GET_INPUT, LOGGEDIN_USER, REGISTERED_USER, SEND_MESSAGE, OPEN_MODAL, CLOSE_MODAL, REGISTRATION_FORM, LOGIN_FORM } from "../types.js"
+import { GET_INPUT, LOGGEDIN_USER, REGISTERED_USER, SEND_MESSAGE, OPEN_MODAL, CLOSE_MODAL, REGISTRATION_FORM, LOGIN_FORM, LOGOUT_AUTH } from "../types.js"
 
 let initialState = {
     firstName: "",
@@ -7,7 +7,6 @@ let initialState = {
     password: "",
     password1: "",
     password2: "",
-    users: [],
     authMessage: "",
     authToken: "",
     isAuth: false,
@@ -26,7 +25,6 @@ const AuthReducer = (state = initialState, action) => {
         case REGISTERED_USER:
             return {
                 ...state,
-                users: [action.payload, ...state.users],
                 authMessage: "",
                 firstName: "",
                 lastName: "",
@@ -74,6 +72,8 @@ const AuthReducer = (state = initialState, action) => {
                 ...state,
                 login: true
             }
+        case LOGOUT_AUTH:
+            return state = initialState
         default:
             return state
     }

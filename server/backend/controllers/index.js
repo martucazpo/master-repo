@@ -6,5 +6,6 @@ module.exports = {
     uponLanding: appControllers.uponLanding,
     registerUser: authControllers.registerUser,
     loginUser: authControllers.loginUser,
-    getUser: appControllers.getUser
+    getUser: appControllers.getUser,
+    logout: authControllers.logoutUser
 }

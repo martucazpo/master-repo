@@ -7,5 +7,8 @@ router.route("/register")
 router.route("/login")
 .post(controllers.loginUser)
 
+router.route("/logout")
+.post(controllers.logout)
+
 
 module.exports = router

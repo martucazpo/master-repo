@@ -8,7 +8,7 @@ module.exports = {
             if (err) {
                 console.log(err)
             } else if (!data) {
-                let newUser = new User({ firstName, lastName, email, password, isAuth:true })
+                let newUser = new User({ firstName, lastName, email, password, isAuth: true })
                 newUser.save((err, data) => {
                     if (err) {
                         console.log(err)
@@ -32,16 +32,29 @@ module.exports = {
                 info = { message: "password or email do not match database" }
                 res.json(info);
             } else {
-                User.findByIdAndUpdate({ _id: user._id },{$set: {isAuth:true}},{new:true},(err, data) => {
+                User.findByIdAndUpdate({ _id: user._id }, { $set: { isAuth: true } }, { new: true }, (err, data) => {
                     if (err) {
                         console.log(err)
                     } else {
                         let { firstName, lastName, email, _id, timestamps, isAuth } = data
-                        res.json({ firstName, lastName, email, _id, timestamps, isAuth})
+                        res.json({ firstName, lastName, email, _id, timestamps, isAuth })
                     }
                 })
             }
         })(req, res, next);
+
+    },
+    logoutUser: (req, res) => {
+        let { _id } = req.body
+        req.logout(() => {
+            User.findByIdAndUpdate({ _id }, { $set: { isAuth: false } }, { new: true }, (err, data) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    return res.json({ message: "You are logged out!" })
+                }
+            })
+        })
 
     }
 }
