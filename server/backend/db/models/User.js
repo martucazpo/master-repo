@@ -20,6 +20,11 @@ const UserSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true
+        },
+        isAuth: {
+            type: Boolean,
+            required: true,
+            default: false
         }
     },
     {

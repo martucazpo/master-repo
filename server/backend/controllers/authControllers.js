@@ -36,8 +36,8 @@ module.exports = {
                     if (err) {
                         console.log(err)
                     } else {
-                        let { firstName, lastName, email, _id, timestamps } = data
-                        res.json({ firstName, lastName, email, _id, timestamps })
+                        let { firstName, lastName, email, _id, timestamps, isAuth } = data
+                        res.json({ firstName, lastName, email, _id, timestamps, isAuth })
                     }
                 })
             }
