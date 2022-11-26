@@ -1,4 +1,5 @@
 import Form from "./Form.js"
+import RegLogBtn from "./RegLogBtn.js"
 import { loginFormProps } from "../js/props.js"
 import store from "../utils/redux/store.js"
 
@@ -7,6 +8,7 @@ const LoginForm = () => {
     let logDiv = document.createElement("div")
     logDiv.classList.add("log-div")
     logDiv.append(Form(loginFormProps))
+    logDiv.append(RegLogBtn())
     const messageDiv = document.createElement("div")
     messageDiv.classList.add("message-div")
     logDiv.append(messageDiv)

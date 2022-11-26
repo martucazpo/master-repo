@@ -1,4 +1,4 @@
-import { GET_INPUT, LOGGEDIN_USER, REGISTERED_USER, SEND_MESSAGE } from "./types.js"
+import { GET_INPUT, LOGGEDIN_USER, REGISTERED_USER, SEND_MESSAGE, OPEN_MODAL, CLOSE_MODAL, LOGIN_FORM, REGISTRATION_FORM } from "./types.js"
 
 export const getInput = (input) =>{
     return {
@@ -25,6 +25,30 @@ export const sendMessage = (message) =>{
     return {
         type: SEND_MESSAGE,
         payload: message
+    }
+}
+
+export const openModal = () =>{
+    return {
+        type: OPEN_MODAL
+    }
+}
+
+export const closeModal = () =>{
+    return {
+        type: CLOSE_MODAL
+    }
+}
+
+export const showRegistrationForm = () =>{
+    return {
+        type: REGISTRATION_FORM
+    }
+}
+
+export const showLoginForm = () =>{
+    return {
+        type: LOGIN_FORM
     }
 }
 

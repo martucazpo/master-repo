@@ -1,6 +1,5 @@
-import RegisterForm from "../components/RegisterForm.js"
-import { regFormProps, loginFormProps } from "../js/props.js"
-import LoginForm from "../components/LoginForm.js"
+import LoginModal from "../components/LoginModal.js"
+import Header from "../components/Header.js"
 import store from "../utils/redux/store.js"
 
 
@@ -9,16 +8,20 @@ const mainDiv = document.getElementById("mainDiv")
 
 
 export const render = () => {
+    const modalOpen = store.getState().auth.modalOpen
     const authState = store.getState().auth.isAuth
     mainDiv.innerHTML = ""
-    if (!authState) {
-        mainDiv.append(RegisterForm(regFormProps))
-        mainDiv.append(LoginForm(loginFormProps))
+    if (!authState && modalOpen) {
+        mainDiv.append(Header())
+        mainDiv.append(LoginModal())
         const inputs = [...document.querySelectorAll("input")]
         inputs.forEach(input => input.value = store.getState()[input.attributes.data.value][input.name])
-    } else {
+    } else if(!authState && !modalOpen){
+        mainDiv.append(Header())
+    }else {
         let h1 = document.createElement("h1")
         h1.innerText = "You're logged in!"
+        mainDiv.append(Header())
         mainDiv.append(h1)
     }
 

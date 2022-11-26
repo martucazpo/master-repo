@@ -1,4 +1,4 @@
-import { GET_INPUT, LOGGEDIN_USER, REGISTERED_USER, SEND_MESSAGE } from "../types.js"
+import { GET_INPUT, LOGGEDIN_USER, REGISTERED_USER, SEND_MESSAGE, OPEN_MODAL, CLOSE_MODAL, REGISTRATION_FORM, LOGIN_FORM } from "../types.js"
 
 let initialState = {
     firstName: "",
@@ -10,11 +10,13 @@ let initialState = {
     users: [],
     authMessage: "",
     authToken: "",
-    isAuth: false
+    isAuth: false,
+    login: true,
+    modalOpen: false
 }
 
-const AuthReducer = (state=initialState, action) =>{
-    switch(action.type){
+const AuthReducer = (state = initialState, action) => {
+    switch (action.type) {
         case GET_INPUT:
             let { name, value } = action.payload
             return {
@@ -32,7 +34,9 @@ const AuthReducer = (state=initialState, action) =>{
                 password1: "",
                 password2: "",
                 authToken: action.payload._id,
-                isAuth: action.payload.isAuth
+                isAuth: action.payload.isAuth,
+                login: true,
+                modalOpen: false
             }
         case LOGGEDIN_USER:
             return {
@@ -40,12 +44,34 @@ const AuthReducer = (state=initialState, action) =>{
                 email: "",
                 password: "",
                 authMessage: "",
-                isAuth: action.payload.isAuth
+                isAuth: action.payload.isAuth,
+                login: true,
+                modalOpen: false
             }
         case SEND_MESSAGE:
             return {
                 ...state,
                 authMessage: action.payload
+            }
+        case OPEN_MODAL:
+            return {
+                ...state,
+                modalOpen: true
+            }
+        case CLOSE_MODAL:
+            return {
+                ...state,
+                modalOpen: false
+            }
+        case REGISTRATION_FORM:
+            return {
+                ...state,
+                login: false
+            }
+        case LOGIN_FORM:
+            return {
+                ...state,
+                login: true
             }
         default:
             return state
