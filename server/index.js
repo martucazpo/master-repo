@@ -7,7 +7,7 @@ const routes = require("./backend/routes")
 const auth = require("./backend/auth")
 
 app.use(cors())
-app.use(helmet())
+//app.use(helmet())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 

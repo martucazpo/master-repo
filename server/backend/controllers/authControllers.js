@@ -8,7 +8,7 @@ module.exports = {
             if (err) {
                 console.log(err)
             } else if (!data) {
-                let newUser = new User({ firstName, lastName, email, password })
+                let newUser = new User({ firstName, lastName, email, password, isAuth:true })
                 newUser.save((err, data) => {
                     if (err) {
                         console.log(err)
@@ -32,12 +32,12 @@ module.exports = {
                 info = { message: "password or email do not match database" }
                 res.json(info);
             } else {
-                User.findById({ _id: user._id }, (err, data) => {
+                User.findByIdAndUpdate({ _id: user._id },{$set: {isAuth:true}},{new:true},(err, data) => {
                     if (err) {
                         console.log(err)
                     } else {
                         let { firstName, lastName, email, _id, timestamps, isAuth } = data
-                        res.json({ firstName, lastName, email, _id, timestamps, isAuth })
+                        res.json({ firstName, lastName, email, _id, timestamps, isAuth})
                     }
                 })
             }

@@ -1,14 +1,16 @@
-import { GET_INPUT } from "../types.js"
+import { GET_INPUT, LOGGEDIN_USER, REGISTERED_USER, SEND_MESSAGE } from "../types.js"
 
 let initialState = {
     firstName: "",
     lastName: "",
     email: "",
+    password: "",
     password1: "",
     password2: "",
     users: [],
     authMessage: "",
-    authToken: ""
+    authToken: "",
+    isAuth: false
 }
 
 const AuthReducer = (state=initialState, action) =>{
@@ -24,7 +26,26 @@ const AuthReducer = (state=initialState, action) =>{
                 ...state,
                 users: [action.payload, ...state.users],
                 authMessage: "",
-                authToken: action.payload._id
+                firstName: "",
+                lastName: "",
+                email: "",
+                password1: "",
+                password2: "",
+                authToken: action.payload._id,
+                isAuth: action.payload.isAuth
+            }
+        case LOGGEDIN_USER:
+            return {
+                ...state,
+                email: "",
+                password: "",
+                authMessage: "",
+                isAuth: action.payload.isAuth
+            }
+        case SEND_MESSAGE:
+            return {
+                ...state,
+                authMessage: action.payload
             }
         default:
             return state
