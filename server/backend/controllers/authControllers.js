@@ -1,12 +1,8 @@
 const User = require("../db/models").User
 const passport = require("passport")
 
-
 module.exports = {
-    testUser: (req, res) => {
-        res.json({ user: "test user" })
-    },
-    saveTestUser: (req, res) => {
+    registerUser: (req, res) => {
         let { firstName, lastName, email, password } = req.body
         User.findOne({ email }, (err, data) => {
             if (err) {
@@ -21,12 +17,11 @@ module.exports = {
                     }
                 })
             } else {
-                return res.json({message : `${ email } is already registered in our database.`})
+                return res.json({ message: `${email} is already registered in our database.` })
             }
         })
-
     },
-    checkTestUser: (req, res, next ) => {
+    loginUser: (req, res, next) => {
         passport.authenticate("local", (error, user, info) => {
             if (error) {
                 console.log("Failed login:", error);

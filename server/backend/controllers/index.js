@@ -1,9 +1,9 @@
+const appControllers = require("./appControllers")
 const authControllers = require("./authControllers")
 require("../db")
 
-
 module.exports = {
-    testUser: authControllers.testUser,
-    saveTestUser: authControllers.saveTestUser,
-    checkTestUser: authControllers.checkTestUser
+    uponLanding: appControllers.uponLanding,
+    registerUser: authControllers.registerUser,
+    loginUser: authControllers.loginUser
 }
