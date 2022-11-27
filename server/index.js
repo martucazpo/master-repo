@@ -11,8 +11,8 @@ app.use(helmet())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-//comment out if not using html
-a//pp.use(express.static(__dirname + "/backend/public"))
+//comment out if not using html or pug
+app.use(express.static(__dirname + "/backend/public"))
 
 //comment out if not using pug
 app.set("views", "./backend/views")
