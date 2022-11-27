@@ -15,8 +15,8 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static(__dirname + "/backend/public"))
 
 //comment out if not using pug
-//app.set("views", "./backend/views")
-//app.set('view engine', 'pug')
+app.set("views", "./backend/views")
+app.set('view engine', 'pug')
 
 //comment out if no login
 auth(app)
