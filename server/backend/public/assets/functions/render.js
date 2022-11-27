@@ -5,14 +5,12 @@ import store from "../utils/redux/store.js"
 import API from "../utils/api/API.js"
 
 
-
-const mainDiv = document.getElementById("mainDiv")
-
-
 export const render = async () => {
     const modalOpen = store.getState().auth.modalOpen
     const authState = store.getState().auth.isAuth
+    const mainDiv = document.getElementById("mainDiv")
     mainDiv.innerHTML = ""
+    mainDiv.classList.add("main-div")
     if (!authState && modalOpen) {
         mainDiv.append(Header())
         mainDiv.append(LoginModal())

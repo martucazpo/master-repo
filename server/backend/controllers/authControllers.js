@@ -26,11 +26,11 @@ module.exports = {
             if (error) {
                 console.log("Failed login:", error);
                 info = { message: "Failed Login" }
-                res.json(info);
+                return res.json(info);
             }
             if (user === false) {
                 info = { message: "password or email do not match database" }
-                res.json(info);
+                return res.json(info);
             } else {
                 User.findByIdAndUpdate({ _id: user._id }, { $set: { isAuth: true } }, { new: true }, (err, data) => {
                     if (err) {

@@ -7,7 +7,10 @@ const Header = () =>{
     let isAuth = store.getState().auth.isAuth
     const header = document.createElement("header")
     header.classList.add("main-header")
+    const spacer = document.createElement("span")
+    spacer.style.width = "50vw"
     if(!isAuth){
+        header.append(spacer)
         header.append(LoginBtn())
     } else {
         header.append(WelcomeSpan())

@@ -5,16 +5,15 @@ const RegLogBtn = () =>{
     let login = store.getState().auth.login
     let regLoginDiv = document.createElement("div")
     regLoginDiv.innerHTML = ""
+    regLoginDiv.classList.add("reg-log-btn-div")
     if(login){
         let regBtn = document.createElement("button")
         regBtn.innerText = "REGISTER"
-        regBtn.classList.add("reg-login-btn")
         regBtn.addEventListener("click", handleShowReg)
         regLoginDiv.append(regBtn)
     } else {
         let logBtn = document.createElement("button")
         logBtn.innerText = "LOGIN"
-        logBtn.classList.add("reg-login-btn")
         logBtn.addEventListener("click", handleShowLog)
         regLoginDiv.append(logBtn)
     }

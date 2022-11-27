@@ -3,6 +3,9 @@
 
 const Form = (props) =>{
     const form = document.createElement("form")
+    if(props.formClass){
+        form.classList.add(props.formClass)
+    }
     form.addEventListener("submit", (e)=>{
         e.preventDefault()
         props.handleSubmit()

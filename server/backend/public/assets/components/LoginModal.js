@@ -9,6 +9,7 @@ const LoginModal = () =>{
     const modal = document.createElement("div")
     modal.classList.add("modal")
     const modalBtn = document.createElement("button")
+    modalBtn.classList.add("close-modal-btn")
     modalBtn.addEventListener("click", handleModalClose)
     modalBtn.innerText = "CLOSE"
     modal.append(modalBtn)

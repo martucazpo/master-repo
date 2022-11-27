@@ -24,8 +24,8 @@ export const handleShowLog = () =>{
     render()
 }
 
-export const handleLogout = () =>{
+export const handleLogout = async () =>{
     let user = store.getState().app.user
-    API.logoutUser(user)
+    await API.logoutUser(user)
     render()
 }

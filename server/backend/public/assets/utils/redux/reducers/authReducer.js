@@ -55,25 +55,68 @@ const AuthReducer = (state = initialState, action) => {
         case OPEN_MODAL:
             return {
                 ...state,
-                modalOpen: true
+                modalOpen: true,
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+                password1: "",
+                password2: "",
+                authMessage: "",
+                authToken: "",
+                isAuth: false,
+                login: true,
+
             }
         case CLOSE_MODAL:
             return {
                 ...state,
-                modalOpen: false
+                modalOpen: false,
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+                password1: "",
+                password2: "",
+                authMessage: "",
+                authToken: "",
+                login: true,
             }
         case REGISTRATION_FORM:
             return {
                 ...state,
-                login: false
+                login: false,
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+                password1: "",
+                password2: "",
+                authMessage: "",
             }
         case LOGIN_FORM:
             return {
                 ...state,
-                login: true
+                login: true,
+                email: "",
+                password: "",
+                authMessage: "",
             }
         case LOGOUT_AUTH:
-            return state = initialState
+            return {
+                ...state,
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+                password1: "",
+                password2: "",
+                authMessage: "",
+                authToken: "",
+                isAuth: false,
+                login: true,
+                modalOpen: false
+            }
         default:
             return state
     }

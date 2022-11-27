@@ -5,7 +5,7 @@ import store from "../utils/redux/store.js"
 
 const RegisterForm = (props) => {
     let regDiv = document.createElement("div")
-    regDiv.classList.add("reg-div")
+    regDiv.classList.add("log-div")
     regDiv.append(Form(props))
     regDiv.append(RegLogBtn())
     const messageDiv = document.createElement("div")

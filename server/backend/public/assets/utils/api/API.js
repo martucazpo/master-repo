@@ -18,7 +18,7 @@ const API = {
   loginUser: async (user) => {
     await postData(loginURL, user)
       .then((data) => {
-        if (data.messge) {
+        if (data.message) {
           return store.dispatch(sendMessage(data.message))
         } else {
           return store.dispatch(loggedinUser(data))
@@ -32,9 +32,8 @@ const API = {
   logoutUser: async (user) => {
     await postData(logoutURL, user)
     .then((data)=>{
-      store.dispatch(logoutAuth)
-      store.dispatch(logoutApp)
-      console.log(data)
+      store.dispatch(logoutAuth(data))
+      store.dispatch(logoutApp(data))
       return
     })
   }
