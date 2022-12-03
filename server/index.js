@@ -12,11 +12,11 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 //comment out if not using html or pug
-app.use(express.static(__dirname + "/backend/public"))
+//app.use(express.static(__dirname + "/backend/public"))
 
 //comment out if not using pug
-app.set("views", "./backend/views")
-app.set('view engine', 'pug')
+//app.set("views", "./backend/views")
+//app.set('view engine', 'pug')
 
 //comment out if no login
 auth(app)
