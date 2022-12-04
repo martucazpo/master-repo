@@ -4,7 +4,7 @@ const cors = require("cors")
 const helmet = require("helmet")
 const routes = require("./backend/routes")
 //comment out if no login
-const auth = require("./backend/auth")
+const session = require("./backend/auth")
 
 app.use(cors())
 app.use(helmet())
@@ -19,11 +19,11 @@ app.use(express.urlencoded({extended: true}))
 //app.set('view engine', 'pug')
 
 //comment out if no login
-auth(app)
+session(app)
 
 app.use(routes)
 
-
+require("./backend/db")
 app.listen(8000, ()=>console.log("Tiny ears listen on port 8000...."))
 
 module.exports = app
