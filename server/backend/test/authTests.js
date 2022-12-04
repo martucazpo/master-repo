@@ -1,18 +1,16 @@
 const chai = require("chai")
 const chaiHttp = require("chai-http")
 const server = require("../../index")
-const bcrypt = require("bcryptjs")
 const assert = chai.assert
 chai.use(chaiHttp)
 
 
 suite("register a User", ()=>{
-    let hashedPass = bcrypt.hashSync("password", 10)
     let user1 = {
         firstName: "Test",
         lastName: "One",
         email: "test1E@mail.com",
-        password: hashedPass
+        password: "password"
     }
 
     // test("should be able to register a user", (done)=>{
@@ -122,14 +120,14 @@ suite("Update user", ()=>{
         firstName: "",
         lastName: "",
         email: "",
-        password: bcrypt.hashSync("catsstink", 10)
+        password: "catsstink"
     }
     let updateAll = {
         _id,
         firstName: "Test",
         lastName: "One",
         email: "test1E@mail.com",
-        password: bcrypt.hashSync("password", 10) 
+        password: "password"
     }
     test("should be able to update a user-firstName", (done)=>{
         chai.request(server)

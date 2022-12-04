@@ -4,7 +4,9 @@ const bcrypt = require("bcryptjs")
 
 module.exports = {
     registerAUser: (req, res) => {
+        console.log(req.body)
         let { firstName, lastName, email, password } = req.body
+        password =bcrypt.hashSync(password, 10)
         User.findOne({ email }, (err, data) => {
             if (err) {
                 console.log(err)

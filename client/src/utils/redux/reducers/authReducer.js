@@ -1,4 +1,4 @@
-import { GET_AUTH_INPUT } from "../types"
+import { CLOSE_AUTH_MODAL, GET_AUTH_INPUT, GET_USER_ID, SEND_AUTH_MESSAGE, TOGGLE_REGLOG_BTN, OPEN_AUTH_MODAL } from "../types"
 
 let initialState = {
     firstName: "",
@@ -7,9 +7,11 @@ let initialState = {
     password: "",
     password1: "",
     password2: "",
-    isAuth: true,
+    isAuth: false,
     modalOpen: false,
     login: true,
+    loginMessage: "",
+    _id: ""
 }
 
 const authReducer = (state = initialState, action) => {
@@ -20,6 +22,34 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 [name]: value
             }
+        case TOGGLE_REGLOG_BTN:
+            return {
+                ...state,
+                login: !state.login
+            }
+        case SEND_AUTH_MESSAGE:
+            return {
+                ...state,
+                loginMessage: action.payload
+            }
+        case GET_USER_ID:
+            return {
+                ...state,
+                isAuth: true,
+                _id: action.payload
+            }
+        case CLOSE_AUTH_MODAL:
+            return {
+                ...state,
+                modalOpen: false,
+                login: true
+            }
+            case OPEN_AUTH_MODAL:
+                return {
+                    ...state,
+                    modalOpen: true,
+                    login: true
+                }
         default:
             return state
     }
