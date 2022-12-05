@@ -16,8 +16,8 @@ module.exports = {
                     if (err) {
                         console.log(err)
                     } else {
-                        let { firstName, lastName, email, _id, loggedIn } = data
-                        return res.json({ firstName, lastName, email, _id, loggedIn })
+                        let {  _id, loggedIn } = data
+                        return res.json({  _id, loggedIn })
                     }
                 })
             } else {
@@ -40,8 +40,8 @@ module.exports = {
                     if (err) {
                         console.log(err)
                     } else {
-                        let { firstName, lastName, email, _id, loggedIn } = data
-                        return res.json({ firstName, lastName, email, _id, loggedIn })
+                        let {  _id, loggedIn } = data
+                        return res.json({ _id, loggedIn })
                     }
                 })
             }
@@ -53,6 +53,9 @@ module.exports = {
             if(fromFront[key] === ""){
                 delete fromFront[key]
             }
+        }
+        if(fromFront.password){
+            fromFront.password = bcrypt.hashSync(fromFront.password, 10)
         }
         User.findOne({ email: fromFront.email }, (err, data) => {
             if (err) {
@@ -68,7 +71,7 @@ module.exports = {
                             if (err) {
                                 console.log(err)
                             } else {
-                                let { firstName, lastName, email, _id, loggedIn } = data
+                                let { firstName, lastName, email,  _id, loggedIn } = data
                                 return res.json({ firstName, lastName, email, _id, loggedIn })
                             }
                         })
@@ -86,7 +89,7 @@ module.exports = {
                 if (err) {
                     console.log(err)
                 } else {
-                    res.json({ message: `${data.email} is logged out` })
+                    res.json({ message: `${data.email} logged out is: ${data.loggedIn}` })
                 }
             })
         })

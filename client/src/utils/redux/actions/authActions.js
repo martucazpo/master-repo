@@ -1,4 +1,4 @@
-import { CLOSE_AUTH_MODAL, GET_AUTH_INPUT, GET_USER_ID, SEND_AUTH_MESSAGE, TOGGLE_REGLOG_BTN, OPEN_AUTH_MODAL } from "./types"
+import { CLOSE_AUTH_MODAL, GET_AUTH_INPUT, GET_USER_ID, SEND_AUTH_MESSAGE, TOGGLE_REGLOG_BTN, OPEN_AUTH_MODAL, LOG_OUT } from "../types"
 
 
 export const getAuthInput = (input) =>{
@@ -37,6 +37,12 @@ export const closeAuthModal = () =>{
 export const openAuthModal = () =>{
     return {
         type:OPEN_AUTH_MODAL
+    }
+}
+
+export const logout = () =>{
+    return {
+        type: LOG_OUT
     }
 }
     

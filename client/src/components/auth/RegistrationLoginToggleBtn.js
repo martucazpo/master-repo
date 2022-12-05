@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { toggleReglogBtn } from "../../utils/redux/actions"
+import { toggleReglogBtn } from "../../utils/redux/actions/authActions"
 
 const RegistrationLoginToggleBtn = (props) => {
     return (

@@ -2,7 +2,7 @@ import Modal from "../basic/Modal"
 import LoginForm from "./LoginForm"
 import RegistrationForm from "./RegistrationForm"
 import { connect } from "react-redux"
-import { closeAuthModal } from "../../utils/redux/actions"
+import { closeAuthModal } from "../../utils/redux/actions/authActions"
 
 
 const LoginModal = (props) => {

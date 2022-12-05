@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { getAuthInput } from "../../utils/redux/actions"
+import { getAuthInput } from "../../utils/redux/actions/authActions"
 
 const Textinput = (props) => {
     return (

@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
-import { openAuthModal } from "../../utils/redux/actions"
+import { openAuthModal } from "../../utils/redux/actions/authActions"
+import { API } from "../../utils/api"
 
 
 const Navbar = (props) => {
@@ -14,7 +15,7 @@ const Navbar = (props) => {
                         LOGIN</button> :
                     <form onSubmit={(e) => {
                         e.preventDefault()
-                        //logout action from api
+                        API.logoutUser(props.appState.user)
                     }}>
                         <button type="submit">LOGOUT</button>
                     </form>
@@ -25,7 +26,8 @@ const Navbar = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        authState: state.auth
+        authState: state.auth,
+        appState: state.app
     }
 }
 

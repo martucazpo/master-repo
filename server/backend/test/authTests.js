@@ -19,7 +19,6 @@ suite("register a User", ()=>{
     //     .send(user1)
     //     .end((err, res)=>{
     //         assert.equal(res.status, 200)
-    //         assert.isString(res.body.firstName)
     //         assert.isString(res.body._id)
     //         done()
     //     })
@@ -56,9 +55,9 @@ suite("login a user", ()=>{
         .send(loginUser)
         .end((err, res)=>{
             assert.equal(res.status, 200)
-            assert.isNotEmpty(res.body.firstName)
-            assert.isNotEmpty(res.body.lastName)
-            assert.isNotEmpty(res.body.email)
+            // assert.isNotEmpty(res.body.firstName)
+            // assert.isNotEmpty(res.body.lastName)
+            // assert.isNotEmpty(res.body.email)
             assert.isNotEmpty(res.body._id)
             done()
         })
@@ -144,7 +143,6 @@ suite("Update user", ()=>{
         .post("/auth/update")
         .send(updateLast)
         .end((err, res)=>{
-            console.log(res.body)
             assert.equal(res.status, 200)
             assert.equal(res.body.lastName, "Juan")
             done()

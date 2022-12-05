@@ -1,9 +1,9 @@
 import Form from "../basic/Form"
 import Textinput from "../basic/Textinput"
 import RegistrationLoginToggleBtn from "./RegistrationLoginToggleBtn"
-import { API } from "../../utils/api/API"
+import { API } from "../../utils/api"
 import { connect } from "react-redux"
-import { sendAuthMessage } from "../../utils/redux/actions"
+import { sendAuthMessage } from "../../utils/redux/actions/authActions"
 
 
 

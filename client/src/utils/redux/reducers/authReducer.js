@@ -1,4 +1,4 @@
-import { CLOSE_AUTH_MODAL, GET_AUTH_INPUT, GET_USER_ID, SEND_AUTH_MESSAGE, TOGGLE_REGLOG_BTN, OPEN_AUTH_MODAL } from "../types"
+import { CLOSE_AUTH_MODAL, GET_AUTH_INPUT, GET_USER_ID, SEND_AUTH_MESSAGE, TOGGLE_REGLOG_BTN, OPEN_AUTH_MODAL, LOG_OUT } from "../types"
 
 let initialState = {
     firstName: "",
@@ -11,7 +11,7 @@ let initialState = {
     modalOpen: false,
     login: true,
     loginMessage: "",
-    _id: ""
+    data: {}
 }
 
 const authReducer = (state = initialState, action) => {
@@ -25,7 +25,14 @@ const authReducer = (state = initialState, action) => {
         case TOGGLE_REGLOG_BTN:
             return {
                 ...state,
-                login: !state.login
+                login: !state.login,
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+                password1: "",
+                password2: "",
+                loginMessage: "",
             }
         case SEND_AUTH_MESSAGE:
             return {
@@ -36,20 +43,38 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAuth: true,
-                _id: action.payload
+                data: action.payload,
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+                password1: "",
+                password2: "",
+                loginMessage: "",
+                modalOpen: false,
+                login: true
             }
         case CLOSE_AUTH_MODAL:
             return {
                 ...state,
                 modalOpen: false,
-                login: true
+                login: true,
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+                password1: "",
+                password2: "",
+                loginMessage: "",
             }
-            case OPEN_AUTH_MODAL:
-                return {
+        case OPEN_AUTH_MODAL:
+            return {
                     ...state,
                     modalOpen: true,
                     login: true
                 }
+        case LOG_OUT:
+            return initialState
         default:
             return state
     }
