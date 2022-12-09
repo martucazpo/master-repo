@@ -1,6 +1,8 @@
 import {} from "../types"
 
-let initialState = {}
+let initialState = {
+    isAuth: false
+}
 
 const authReducer = (state=initialState,action)=>{
     switch(action.type){
