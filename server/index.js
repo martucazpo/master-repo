@@ -23,7 +23,6 @@ session(app)
 
 app.use(routes)
 
-require("./backend/db")
 app.listen(8000, ()=>console.log("Tiny ears listen on port 8000...."))
 
 module.exports = app
