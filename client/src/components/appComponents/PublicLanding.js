@@ -1,11 +1,21 @@
+import Modal from "../blockComponents/Modal"
+import { connect } from "react-redux"
 
-
-
-const PublicLanding = () =>{
+const PublicLanding = (props) => {
     return (
-        <h1>Public Landing</h1>
+        <>
+            {props.auth.modalOpen && <Modal />}
+            <h1>Public Landing</h1>
+        </>
+
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
 
-export default PublicLanding
+
+export default connect(mapStateToProps, null)(PublicLanding)
