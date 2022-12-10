@@ -1,8 +1,16 @@
-import { CLOSE_MODAL, OPEN_MODAL } from "../types"
+import { CLOSE_MODAL, GET_INPUT, OPEN_MODAL, SEND_AUTH_MESSAGE, TOGGLE_LOGIN } from "../types"
 
 let initialState = {
     isAuth: false,
-    modalOpen: false
+    modalOpen: false,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    password1: "",
+    password2: "",
+    authMessage: "",
+    login: false
 }
 
 const authReducer = (state=initialState,action)=>{
@@ -10,12 +18,33 @@ const authReducer = (state=initialState,action)=>{
         case OPEN_MODAL:
             return {
                 ...state,
-                modalOpen: true
+                modalOpen: true,
+                authMessage: "",
+               login: true
             }
         case CLOSE_MODAL:
             return {
                 ...state,
-                modalOpen: false
+                modalOpen: false,
+                authMessage: "",
+                login: true
+            }
+        case GET_INPUT:
+            let { name, value } = action.payload
+            return {
+                ...state,
+                [name]: value
+            }
+        case SEND_AUTH_MESSAGE:
+            return {
+                ...state,
+                authMessage: action.payload
+            }
+        case TOGGLE_LOGIN:
+            return {
+                ...state,
+                login: !state.login,
+                authMessage: ""
             }
         default:
             return state

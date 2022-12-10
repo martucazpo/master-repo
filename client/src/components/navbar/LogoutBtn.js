@@ -1,15 +1,12 @@
-
+import Form from "../blockComponents/Form"
 
 
 const LogoutBtn = () =>{
     const handleSubmit=(e)=>{
         e.preventDefault()
     }
-    return (
-        <form onSubmit={handleSubmit}>
-            <button type="submit">LOGOUT</button>
-        </form>
-    )
+    return <Form handleSubmit={handleSubmit} btnTxt="LOGOUT" />
+    
 }
 
 export default LogoutBtn

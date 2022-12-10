@@ -1,10 +1,10 @@
-import Modal from "../blockComponents/Modal"
+import LoginModal from "../authComponents/LoginModal"
 import { connect } from "react-redux"
 
 const PublicLanding = (props) => {
     return (
         <>
-            {props.auth.modalOpen && <Modal />}
+            {props.auth.modalOpen && <LoginModal />}
             <h1>Public Landing</h1>
         </>
 

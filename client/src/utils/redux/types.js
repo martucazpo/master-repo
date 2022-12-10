@@ -1,2 +1,5 @@
 export const OPEN_MODAL = 'OPEN_MODAL'
 export const CLOSE_MODAL = 'CLOSE_MODAL'
+export const GET_INPUT = 'GET_INPUT'
+export const SEND_AUTH_MESSAGE = 'SEND_AUTH_MESSAGE'
+export const TOGGLE_LOGIN = 'TOGGLE_LOGIN'

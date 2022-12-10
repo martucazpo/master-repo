@@ -6,7 +6,6 @@ const Modal = (props) =>{
     return(
         <div className={"modal" + props.modalClass} >
             <Button btnTxt="CLOSE" btnClass="modal-close-btn" handleClick={props.closeModal} />
-            <h1>MODAL</h1>
             {props.children}
         </div>
     )
