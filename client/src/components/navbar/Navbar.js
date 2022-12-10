@@ -1,10 +1,12 @@
 import { connect } from "react-redux"
+import LogoutBtn from "./LogoutBtn"
+import Button from "../blockComponents/Button"
 
 
 const Navbar = (props) =>{
     return (
         <nav>
-            { props.auth.isAuth ? <h3>LOGOUT</h3> : <h3>LOGIN</h3> }
+            { props.auth.isAuth ? <LogoutBtn /> : <Button btnTxt="LOGIN" handleClick={()=>{}} btnClass="login-reg-btn" /> }
         </nav>
     )
 }

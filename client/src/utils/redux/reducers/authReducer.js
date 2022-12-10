@@ -1,7 +1,7 @@
 import {} from "../types"
 
 let initialState = {
-    isAuth: true
+    isAuth: false
 }
 
 const authReducer = (state=initialState,action)=>{

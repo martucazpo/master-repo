@@ -2,9 +2,12 @@
 
 
 const LogoutBtn = () =>{
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+    }
     return (
-        <form>
-
+        <form onSubmit={handleSubmit}>
+            <button type="submit">LOGOUT</button>
         </form>
     )
 }
