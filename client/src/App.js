@@ -3,11 +3,13 @@ import PrivateRoute from "./components/authComponents/PrivateRoute"
 import PublicRoute from "./components/authComponents/PublicRoute"
 import PrivateLanding from "./components/appComponents/PrivateLanding"
 import PublicLanding from "./components/appComponents/PublicLanding"
+import Navbar from "./components/navbar/Navbar"
 
 
 const App = () =>{
     return (
         <>
+        <Navbar />
         <Routes>
             <Route element={ <PublicRoute /> }>
                 <Route path="/" element={ <PublicLanding /> } />
