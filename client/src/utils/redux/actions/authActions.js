@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL, GET_INPUT, SEND_AUTH_MESSAGE, TOGGLE_LOGIN } from "../types"
+import { OPEN_MODAL, CLOSE_MODAL, GET_INPUT, SEND_AUTH_MESSAGE, TOGGLE_LOGIN, GET_AUTH_USER, LOGOUT } from "../types"
 
 export const openModal = () =>{
     return {
@@ -29,5 +29,18 @@ export const sendAuthMessage = (message)=>{
 export const toggleLogin = () =>{
     return {
         type: TOGGLE_LOGIN,
+    }
+}
+
+export const getAuthUser = (user) =>{
+    return {
+        type: GET_AUTH_USER,
+        payload: user
+    }
+}
+
+export const logout = () =>{
+    return {
+        type: LOGOUT,
     }
 }

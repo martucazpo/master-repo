@@ -89,7 +89,7 @@ module.exports = {
                 if (err) {
                     console.log(err)
                 } else {
-                    res.json({ message: `${data.email} logged out is: ${data.loggedIn}` })
+                    res.json({ message: `${data.email} loggedin is: ${data.loggedIn}` })
                 }
             })
         })

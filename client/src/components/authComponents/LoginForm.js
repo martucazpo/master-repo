@@ -2,11 +2,14 @@ import { connect } from "react-redux"
 import Form from "../blockComponents/Form"
 import Textinput from "../blockComponents/Textinput"
 import LoginRegistrationBtn from "./LoginRegistrationBtn"
+import API from "../../utils/api"
 
 
 const LoginForm = (props) =>{
     const handleSubmit = (e) =>{
         e.preventDefault()
+        let { email, password } = props.auth
+        API.login({ email, password })
     }
     return (
         <div>

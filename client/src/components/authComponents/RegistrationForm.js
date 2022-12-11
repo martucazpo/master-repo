@@ -3,6 +3,7 @@ import Form from "../blockComponents/Form"
 import Textinput from "../blockComponents/Textinput"
 import { sendAuthMessage } from "../../utils/redux/actions/authActions"
 import LoginRegistrationBtn from "./LoginRegistrationBtn"
+import API from "../../utils/api"
 
 
 const RegistrationForm = (props) =>{
@@ -11,7 +12,9 @@ const RegistrationForm = (props) =>{
         if( props.auth.password1 !== props.auth.password2 ){
             props.sendAuthMessage("The passwords do not match")
         } else {
-            //make an api call
+            let { firstName, lastName, email, password1 } = props.auth
+            let password = password1
+            API.register({ firstName, lastName, email, password })
         }
     }
     return (
