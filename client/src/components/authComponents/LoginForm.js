@@ -16,11 +16,12 @@ const LoginForm = (props) =>{
             <Form 
             handleSubmit={handleSubmit}
             btnTxt="LOGIN"
+            formClass="auth-form"
             >
                 <Textinput labelTxt="Email" name="email"/>
                 <Textinput labelTxt="Password" name="password"/>
             </Form>
-            <div>
+            <div className="auth-message-div">
                 <h3>{ props.auth.authMessage }</h3>
             </div>
             <div>

@@ -1,0 +1,46 @@
+
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-span {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+}
+
+.form input {
+    padding: 0.25em;
+}
+
+.form button {
+    padding: 0.5em;
+    margin: 0.5em 0;
+}
+
+.auth-form button {
+    background-color: black;
+    color: white;
+} 
+
+.auth-form button:hover {
+    background-color: dodgerblue;
+}
+
+.auth-message-div {
+    min-height: 2.3em;
+}
+
+.login-registration-btn{
+    background-color: inherit;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.login-registration-btn:hover {
+    background-color: aquamarine;
+}

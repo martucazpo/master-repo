@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 
 const LoginModal = (props) => {
     return (
-        <Modal>
+        <Modal modalClass="login-modal">
             {props.auth.login ? <LoginForm /> : <RegistrationForm />}
         </Modal>
     )

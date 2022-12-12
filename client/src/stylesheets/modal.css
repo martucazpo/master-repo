@@ -1,0 +1,43 @@
+
+.modal {
+    width: 100vw;
+    max-width: 350px;
+    height: 100vh;
+    max-height: 600px;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 10;
+    background-color: bisque;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-close-btn-wrapper{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-close-btn{
+    background-color: inherit;
+    padding: 0.25em;
+    border-radius: 0.5em;
+}
+
+.modal-close-btn:hover {
+    background-color: darkred;
+    color: white;
+}
+
+@media only screen and (min-width: 350px) and (min-height: 600px){
+    .modal {
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        height: fit-content;
+    }
+}

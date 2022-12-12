@@ -22,6 +22,7 @@ const RegistrationForm = (props) =>{
             <Form 
             handleSubmit={handleSubmit}
             btnTxt="REGISTER"
+            formClass="auth-form"
             >
                 <Textinput labelTxt="First Name" name="firstName" />
                 <Textinput labelTxt="Last Name" name="lastName"/>
@@ -29,7 +30,7 @@ const RegistrationForm = (props) =>{
                 <Textinput labelTxt="Password" name="password1"/>
                 <Textinput labelTxt="Please Re-enter Password" name="password2"/>
             </Form>
-            <div>
+            <div className="auth-message-div">
                 <h3>{ props.auth.authMessage }</h3>
             </div>
             <div>

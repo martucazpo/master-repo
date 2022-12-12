@@ -4,7 +4,7 @@ import { getInput } from "../../utils/redux/actions/authActions"
 
 const Textinput = (props) => {
     return (
-        <span>
+        <span className="input-span">
             <label
                 htmlFor={props.name}>
                 {props.labelTxt}

@@ -7,7 +7,7 @@ const LogoutBtn = (props) =>{
         e.preventDefault()
         API.logout({ _id: props.auth._id})
     }
-    return <Form handleSubmit={handleSubmit} btnTxt="LOGOUT" />
+    return <Form handleSubmit={handleSubmit} btnTxt="LOGOUT" formClass="logout-form"/>
     
 }
 

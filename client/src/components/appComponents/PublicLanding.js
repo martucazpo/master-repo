@@ -3,10 +3,10 @@ import { connect } from "react-redux"
 
 const PublicLanding = (props) => {
     return (
-        <>
+        <div className="landing public-landing">
             {props.auth.modalOpen && <LoginModal />}
             <h1>Public Landing</h1>
-        </>
+        </div>
 
     )
 }

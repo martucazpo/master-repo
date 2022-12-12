@@ -4,8 +4,10 @@ import { closeModal } from "../../utils/redux/actions/authActions"
 
 const Modal = (props) =>{
     return(
-        <div className={"modal" + props.modalClass} >
-            <Button btnTxt="CLOSE" btnClass="modal-close-btn" handleClick={props.closeModal} />
+        <div className={"modal " + props.modalClass }>
+            <div className="modal-close-btn-wrapper">
+                <Button btnTxt="CLOSE" btnClass="modal-close-btn" handleClick={props.closeModal} />
+            </div>
             {props.children}
         </div>
     )

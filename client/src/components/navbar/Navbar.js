@@ -6,8 +6,8 @@ import { openModal } from "../../utils/redux/actions/authActions"
 
 const Navbar = (props) =>{
     return (
-        <nav>
-            { props.auth.isAuth ? <LogoutBtn /> : <Button btnTxt="LOGIN" handleClick={props.openModal} btnClass="login-reg-btn" /> }
+        <nav className="main-nav">
+            { props.auth.isAuth ? <LogoutBtn /> : <Button btnTxt="LOGIN" handleClick={props.openModal} btnClass="login-btn" /> }
         </nav>
     )
 }

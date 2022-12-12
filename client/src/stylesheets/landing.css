@@ -1,0 +1,27 @@
+.landing {
+    width: 100vw;
+    height: 90vh;
+}
+
+.private-landing {
+    background-color: lightgoldenrodyellow; 
+}
+
+.public-landing {
+    background-color: lightskyblue;
+}
+
+.user-name-h1 {
+    color: rgb(37, 22, 2);
+}
+
+.user-name-span {
+    color: orangered;
+}
+
+
+@media only screen and (min-width: 800px){
+    .user-name-span {
+        font-size: 3em;
+    }
+}
